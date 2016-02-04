@@ -53,13 +53,19 @@ defmodule ExNeo do
     end
   end
 
-  defp statement_to_map(statement, params) do
-    %{statement: statement, parameters: params}
-  end
+  @doc """
+  Takes a list of statements {string, map} and converts them to
+  maps that can be sent to the Neo4j rest server to perform the statement.
 
+  @param statements: A list of statements, such that each statement is a
+    tuple where the first item is the statement and the second are the params.
+
+  @return: A list of those maps to be sent to the server.
+  """
+  @spec statements_to_maps([{String.t, map}]) :: [map]
   defp statements_to_maps(statements) do
     Enum.map(statements, fn {statement, params} ->
-      statement_to_map(statement, params)
+      %{statement: statement, parameters: params}
     end)
   end
   
