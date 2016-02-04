@@ -1,6 +1,6 @@
 # ExNeo
 
-A lightweight library to interface with a Neo4j rest server.
+A lightweight library to interface with Neo4j via the transaction cypher http endpoint 
 
 
 ## Create a session
