@@ -16,7 +16,7 @@ or
 session = ExNeo.Session.create()
 ```
 
-## Config
+### Session Config
 
 Add the following to `config/config.exs` to change the default url:
 ```
