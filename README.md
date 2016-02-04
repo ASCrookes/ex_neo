@@ -19,7 +19,7 @@ session = ExNeo.Session.create()
 ### Session Config
 
 Add the following to `config/config.exs` to change the default url:
-```
+```elixir
 config :ex_neo, url: defualt_url_here
 ```
 
@@ -27,7 +27,7 @@ config :ex_neo, url: defualt_url_here
 
 Commit a cypher statement:
 
-```
+```elixir
 statement = "MATCH (node) RETURN node LIMIT 1"
 session = ExNeo.Session.create()
 ExNeo.commit_statement(session, statement)
