@@ -44,8 +44,6 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [{:ex_neo, "~> 0.0.1"}]
         end
 
-  2. Ensure ex_neo is started before your application:
+## Contributions
 
-        def application do
-          [applications: [:ex_neo]]
-        end
+This project is far from finished. If you want to contribute/add anything to this please create an issue or send a pull request.
