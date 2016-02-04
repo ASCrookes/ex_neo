@@ -28,6 +28,6 @@ defmodule ExNeo.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:httpoison, "~> 0.8.1"},
-     {:poison, "~> 2.0.1"}]
+     {:poison, "> 1.0"}]
   end
 end
