@@ -63,7 +63,7 @@ defmodule ExNeo do
   @return: A list of those maps to be sent to the server.
   """
   @spec statements_to_maps([{String.t, map}]) :: [map]
-  defp statements_to_maps(statements) do
+  def statements_to_maps(statements) do
     Enum.map(statements, fn {statement, params} ->
       %{statement: statement, parameters: params}
     end)
