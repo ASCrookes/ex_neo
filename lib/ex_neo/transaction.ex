@@ -94,7 +94,7 @@ defmodule ExNeo.Transaction do
   @return :ok
   """
   def rollback(%Transaction{execute_url: url}) do
-    HTTPoison.delete!(url, "", @headers)
+    HTTPoison.delete!(url, @headers)
     :ok
   end
 
