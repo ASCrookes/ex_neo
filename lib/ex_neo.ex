@@ -46,13 +46,11 @@ defmodule ExNeo do
   def commit_statements(%Session{commit_url: url, timeout: timeout}, statements) do
     payload = Poison.encode! %{statements: statements_to_maps(statements)}
     headers = Map.put(@headers, "max-execution-time", timeout)
-    case HTTPoison.post!(url, payload, headers, recv_timeout: timeout).body |> Poison.decode do
-      {:ok, %{"errors"=> [_|_] = errors}} ->
-        {:error, errors}
-      {:ok, %{"results" => results}} ->
+    case HTTPoison.post!(url, payload, headers, recv_timeout: timeout).body |> Poison.decode! do
+      %{"errors"=> [_|_] = errors} ->
+        {:errors, errors}
+      %{"results" => results} ->
         {:ok, Enum.map(results, fn x -> Response.map_json(x) end)}
-      {:error, error} ->
-        {:error, error}
     end
   end
 
